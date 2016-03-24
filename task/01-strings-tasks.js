@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    return (value.substring(value.indexOf(' '),value.length-1));
+    return (value.substring(value.indexOf(" ")+1,value.length-1));
 }
 
 
