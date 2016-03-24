@@ -114,11 +114,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-    var result = '';
-    for(var v = 0;v<count;v++){
-        result+=value;
-    }
-    return result;
+    return value.repeat(count) ;
 }
 
 /**
@@ -205,9 +201,8 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    return "┌"+"─".repeat(height-2)+"┐\n" + ("|"+(" ".repeat(height-2))+"|\n").repeat(width-2)+ "└"+"─".repeat(height-2)+"┘";
 }
-
 
 /**
  * Encode specified string with ROT13 cipher
