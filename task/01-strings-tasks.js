@@ -22,7 +22,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-    return ' '+value1+value2;
+    return value1+value2;
 }
 
 
@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    return 'Hello, '+ firstName + ' '+ lastName +'!';
+    return 'Hello, '+ firstName +" "+ lastName +'!';
 }
 
 /**
@@ -237,7 +237,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    return typeof(value) == "string" ;
+    return value instanceof Object? true : typeof(value) == "string" ;
 }
 /**
  * Returns playid card id.
