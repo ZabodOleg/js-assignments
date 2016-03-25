@@ -22,7 +22,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-    return " "+value1+value2;
+    return value1.concat(value2);
 }
 
 
@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    return (value.substring(value.indexOf(","),value.length-1));
+    return value.split(" ")[1]+" "+(value.split(" ")[2]).substring(0,value.split(" ")[2].length-1);
 }
 
 
