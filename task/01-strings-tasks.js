@@ -237,7 +237,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    return value instanceof Object? true : typeof(value) == "string" ;
+    return value instanceof String ? true : typeof(value) == "string" ;
 }
 /**
  * Returns playid card id.
