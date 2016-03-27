@@ -224,7 +224,7 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function c(value, def) {
+function toNumber(value, def) {
     return (value ^ 0) === value ? Number(value) : def;
 }
 module.exports = {
