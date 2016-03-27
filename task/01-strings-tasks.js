@@ -203,7 +203,6 @@ function extractEmails(str) {
 function getRectangleString(width, height) {
     return "┌"+"─".repeat(width-2)+"┐\n" + ("|"+(" ".repeat(width-2))+"|\n").repeat(height-2)+ "└"+"─".repeat(width-2)+"┘\n";
 }
-
 /**
  * Encode specified string with ROT13 cipher
  * See details:  https://en.wikipedia.org/wiki/ROT13
