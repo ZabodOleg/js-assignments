@@ -96,9 +96,9 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
-function angleBetweenClockHands(date) {
-    var dat = new Date(date);
-    return Math.abs(0.5*(dat.getHours()*60-11*dat.getMinutes()))/180*Math.PI;
+function angleBetweenClockHands(date){
+    return Math.abs((Math.round(date/60/60/1000) - Math.round(date/24/60/60/1000)*60
+            -11*Math.round(date/60/1000) % Math.round(date/60/60/1000))/180*Math.PI);
 }
 module.exports = {
     parseDataFromRfc2822: parseDataFromRfc2822,

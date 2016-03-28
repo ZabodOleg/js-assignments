@@ -227,7 +227,9 @@ function isPrime(n) {
 function toNumber(value, def) {
     //why?=(((
     //return (value ^ 0) === value ? Number(value) : Number(def);
-    return (typeof value) === "number" ? Number(value): def;
+    //why?????????
+    // (typeof value) === "number" ? Number(value): def;
+    return Number(value)<0 || Number(value)>0 ? Number: def ;
 }
 module.exports = {
     getRectangleArea: getRectangleArea,
