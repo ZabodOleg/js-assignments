@@ -77,7 +77,8 @@ function isLeapYear(date) {
  */
 function timeSpanToString(startDate, endDate) {
     var date = new Date(endDate - startDate);
-    return Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000)+":"+date.getMinutes()+":"+date.getSeconds()+"."+date.getMilliseconds();
+    return Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000)+":"+date.getMinutes()
+        +":"+date.getSeconds()+"."+Math.round(date.getMilliseconds());
     //date.setHours(Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000));
     //date.setMinutes(Math.round((endDate-startDate)/60/1000) % Math.round((endDate-startDate)/60/60/1000));
     //date.setSeconds(Math.round((endDate-startDate)/1000) % Math.round((endDate-startDate)/60/1000));
