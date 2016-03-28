@@ -97,7 +97,7 @@ function angleBetweenClockHands(date){
     var pushDate = new Date(date);
     var engle = 0.5*(pushDate.getUTCHours()*60-11*pushDate.getUTCMinutes());
     while(engle>=360){
-        engle-=90;
+        engle-=360;
     }
     return engle >= 180? (360 - engle)/180*Math.PI:engle/180*Math.PI;
 }
