@@ -95,7 +95,11 @@ function timeSpanToString(startDate, endDate) {
  */
 function angleBetweenClockHands(date){
     var pushDate = new Date(date);
-    return 0.5*(pushDate.getUTCHours()*60-11*pushDate.getUTCMinutes());
+    var engle = 0.5*(pushDate.getUTCHours()*60-11*pushDate.getUTCMinutes());
+    while(engle>=360){
+        engle-=90;
+    }
+    return engle >= 180? (360 - engle)/180*Math.PI:engle/180*Math.PI;
 }
 module.exports = {
     parseDataFromRfc2822: parseDataFromRfc2822,
