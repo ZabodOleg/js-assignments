@@ -231,7 +231,7 @@ function toNumber(value, def) {
     //return (value ^ 0) === value ? Number(value) : Number(def);
     //why?????????
     // (typeof value) === "number" ? Number(value): def;
-    return Number(value)<0 || Number(value)>0 ? Number: def ;
+    return Number(value)<0 || Number(value)>0 ? Number(value): def ;
 }
 module.exports = {
     getRectangleArea: getRectangleArea,

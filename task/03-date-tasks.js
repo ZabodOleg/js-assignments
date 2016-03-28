@@ -76,12 +76,13 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-    var date = new Date();
-    date.setHours(Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000));
-    date.setMinutes(Math.round((endDate-startDate)/60/1000) % Math.round((endDate-startDate)/60/60/1000));
-    date.setSeconds(Math.round((endDate-startDate)/1000) % Math.round((endDate-startDate)/60/1000));
-    date.setMilliseconds(Math.round((endDate-startDate)) % Math.round((endDate-startDate)/1000));
-    return date.toTimeString().split(" ")[0]+"."+date.getMilliseconds();
+    var date = new Date(endDate - startDate);
+    return Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000)+":"+date.getMinutes()+":"+date.getSeconds()+"."+date.getMilliseconds();
+    //date.setHours(Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000));
+    //date.setMinutes(Math.round((endDate-startDate)/60/1000) % Math.round((endDate-startDate)/60/60/1000));
+    //date.setSeconds(Math.round((endDate-startDate)/1000) % Math.round((endDate-startDate)/60/1000));
+    //date.setMilliseconds(Math.round((endDate-startDate)) % Math.round((endDate-startDate)/1000));
+    //return date.toTimeString().split(" ")[0]+"."+date.getMilliseconds();
 }
 /**
  * Returns the angle (in radians) between the hands of an analog clock for the specified Greenwich time.
@@ -97,8 +98,8 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date){
-    return Math.abs((Math.round(date/60/60/1000) - Math.round(date/24/60/60/1000)*60
-            -11*Math.round(date/60/1000) % Math.round(date/60/60/1000))/180*Math.PI);
+    var pushDate = new Date(date);
+    return 0.5*(resultDate.getUTCHours()*60-11*resultDate.getUTCMinutes());
 }
 module.exports = {
     parseDataFromRfc2822: parseDataFromRfc2822,
