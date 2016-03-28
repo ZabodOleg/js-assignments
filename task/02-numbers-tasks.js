@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return 1.0*(value1+value2)/2;
+    return ((value1+value2)/2)>=Number.MAX_VALUE?Number.POSITIVE_INFINITY:((value1+value2)/2)<=-Number.MAX_VALUE ? Number.NEGATIVE_INFINITY:((value1+value2)/2);
 }
 
 /**
@@ -225,7 +225,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    return (value ^ 0) === value ? Number(value) : def;
+    return (value ^ 0) === value ? Number(value) : Number(def);
 }
 module.exports = {
     getRectangleArea: getRectangleArea,
