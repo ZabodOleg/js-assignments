@@ -76,10 +76,12 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-    return Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000)
-        +":"+Math.round((endDate-startDate)/60/1000) % Math.round((endDate-startDate)/60/60/1000)
-        +":"+Math.round((endDate-startDate)/1000) % Math.round((endDate-startDate)/60/1000)
-        +":"+Math.round((endDate-startDate)) % Math.round((endDate-startDate)/1000);
+    var date = new Date();
+    date.setHours(Math.round((endDate-startDate)/60/60/1000) - Math.round((endDate-startDate)/24/60/60/1000));
+    date.setMinutes(Math.round((endDate-startDate)/60/1000) % Math.round((endDate-startDate)/60/60/1000));
+    date.setSeconds(Math.round((endDate-startDate)/1000) % Math.round((endDate-startDate)/60/1000));
+    date.setMilliseconds(Math.round((endDate-startDate)) % Math.round((endDate-startDate)/1000));
+    return date.toTimeString().split(" ")[0]+"."+date.getMilliseconds();
 }
 /**
  * Returns the angle (in radians) between the hands of an analog clock for the specified Greenwich time.
