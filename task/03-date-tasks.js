@@ -22,7 +22,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   return Date.parse(dateString);
+   return new Date(dateString);
 }
 
 /**
@@ -37,7 +37,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-    return Date.parse(dateString);
+    return new Date(value);
 }
 
 
@@ -99,8 +99,6 @@ function angleBetweenClockHands(date) {
     //return Math.abs(0.5*(dat.getHours()*60-11*dat.getMinutes()));
     return Math.abs(0.5*(Math.round(date/60/60/1000) - Math.round(date/24/60/60/1000)*60-11*Math.round(date/60/1000) % Math.round(date/60/60/1000)));
 }
-
-
 module.exports = {
     parseDataFromRfc2822: parseDataFromRfc2822,
     parseDataFromIso8601: parseDataFromIso8601,
